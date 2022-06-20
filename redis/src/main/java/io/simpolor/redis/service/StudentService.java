@@ -18,6 +18,8 @@ public class StudentService {
     public List<Student> getAll() {
 
         Iterable<Student> students = studentRepository.findAll();
+
+        System.out.println("students : "+students);
         List<Student> list = new ArrayList<>();
         for(Student student : students){
             list.add(student);
@@ -43,9 +45,9 @@ public class StudentService {
 
     public Student update(Student student) {
 
-        Optional<Student> optionalStudent = studentRepository.findById(student.getId());
+        Optional<Student> optionalStudent = studentRepository.findById(student.getStudentId());
         if(!optionalStudent.isPresent()){
-            throw new IllegalArgumentException("studentId : "+student.getId());
+            throw new IllegalArgumentException("studentId : "+student.getStudentId());
         }
 
         return studentRepository.save(student);

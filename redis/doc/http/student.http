@@ -4,7 +4,7 @@ GET http://127.0.0.1:8080/students
 ###
 
 # Student 조회
-GET http://127.0.0.1:8080/students/93fabad0-3904-4af8-b841-8f749393a847
+GET http://127.0.0.1:8080/students/c0e63c09-4db6-4705-8a0a-0799d6eb7239
 
 ###
 
@@ -32,6 +32,6 @@ Content-Type: application/json
 ###
 
 # Student 삭제
-DELETE http://127.0.0.1:8080/students/93fabad0-3904-4af8-b841-8f749393a847
+DELETE http://127.0.0.1:8080/students/bd7f7e34-1785-4f34-8c87-efd33d69202e
 
 ###

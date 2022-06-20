@@ -1,14 +1,12 @@
 package io.simpolor.redis.repository.entity;
 
 import lombok.*;
+
+import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@RedisHash(value = "student", timeToLive = 30)
+// @RedisHash(value = "student", timeToLive = 30)
+@RedisHash(value = "student")
 @Setter
 @Getter
 @NoArgsConstructor
@@ -16,7 +14,7 @@ import javax.persistence.Id;
 public class Student {
 
 	@Id
-	private String id;
+	private String studentId;
 
 	private String name;
 	private Integer grade;

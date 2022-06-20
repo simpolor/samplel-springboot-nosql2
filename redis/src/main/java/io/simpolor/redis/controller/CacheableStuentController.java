@@ -4,29 +4,30 @@ package io.simpolor.redis.controller;
 import io.simpolor.redis.model.ResultDto;
 import io.simpolor.redis.model.StudentDto;
 import io.simpolor.redis.repository.entity.Student;
-import io.simpolor.redis.service.StudentService;
+import io.simpolor.redis.service.CacheableStudentService;
+import io.simpolor.redis.service.CustomStudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-/*
-@RestController
-@RequestMapping(value = "/students")
-@RequiredArgsConstructor
-public class StorageController {
 
-	private final StudentService studentService;
+@RestController
+@RequestMapping(value = "/cacheable/students")
+@RequiredArgsConstructor
+public class CacheableStuentController {
+
+	private final CacheableStudentService cacheableStudentService;
 
 	@GetMapping
 	public List<StudentDto> list() {
 
-		return StudentDto.of(studentService.getAll());
+		return StudentDto.of(cacheableStudentService.getAll());
 	}
 
 	@GetMapping(value="/{studentId}")
 	public StudentDto detail(@PathVariable String studentId) {
 
-		Student student = studentService.get(studentId);
+		Student student = cacheableStudentService.get(studentId);
 
 		return StudentDto.of(student);
 	}
@@ -34,7 +35,7 @@ public class StorageController {
 	@PostMapping
 	public ResultDto register(@RequestBody StudentDto studentDto) {
 
-		Student student = studentService.create(studentDto.toEntity());
+		Student student = cacheableStudentService.create(studentDto.toEntity());
 
 		return ResultDto.of(student.getStudentId());
 	}
@@ -44,20 +45,13 @@ public class StorageController {
 					   @RequestBody StudentDto studentDto) {
 
 		studentDto.setId(studentId);
-		studentService.update(studentDto.toEntity());
+		cacheableStudentService.update(studentDto.toEntity());
 	}
 
 	@DeleteMapping(value="/{studentId}")
-	public void delete(@PathVariable Long studentId) {
+	public void delete(@PathVariable String studentId) {
 
-		studentService.delete(studentId);
+		cacheableStudentService.delete(studentId);
 	}
 
-	@RequestMapping(value="/not", method=RequestMethod.GET)
-	public String studentNot() {
-
-		return "Is not a student";
-	}
-
-
-}*/
+}

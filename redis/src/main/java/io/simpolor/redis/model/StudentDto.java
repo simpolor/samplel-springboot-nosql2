@@ -19,7 +19,7 @@ public class StudentDto {
 	public Student toEntity(){
 
 		Student student = new Student();
-		student.setId(this.id);
+		student.setStudentId(this.id);
 		student.setName(this.name);
 		student.setGrade(this.grade);
 		student.setAge(this.age);
@@ -30,7 +30,7 @@ public class StudentDto {
 	public static StudentDto of(Student student){
 
 		StudentDto studentDto = new StudentDto();
-		studentDto.setId(student.getId());
+		studentDto.setId(student.getStudentId());
 		studentDto.setName(student.getName());
 		studentDto.setGrade(student.getGrade());
 		studentDto.setAge(student.getAge());
